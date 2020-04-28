@@ -49,6 +49,7 @@ namespace tp3
 		}
 	
 		public int altura() {
+			int hola = 1;
 			return 0;
 		}
 	
