@@ -55,6 +55,7 @@ namespace tp3
 	
 		
 		public int nivel(T dato) {
+			int rama = 0;
 			return 0;
 		}
 	
