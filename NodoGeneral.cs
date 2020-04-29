@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace tp3
+namespace TP1
 {
 	/// <summary>
 	/// Description of NodoGeneral.
@@ -31,6 +31,5 @@ namespace tp3
 		public void setHijos(List<NodoGeneral<T>> hijos){		
 			this.hijos = hijos;
 		}
-	
 	}
 }

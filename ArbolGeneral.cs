@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace tp3
+namespace TP1
 {
 	public class ArbolGeneral<T>
 	{
@@ -47,16 +47,61 @@ namespace tp3
 		public bool esHoja() {
 			return this.raiz != null && this.getHijos().Count == 0;
 		}
-	
+		
+		// Ejercicio 4- A)   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		
 		public int altura() {
-			int hola = 1;
-			return 0;
+			int altura = 0;
+			if(this.esHoja()){
+				return 0;
+			}
+			else{
+				foreach(ArbolGeneral<T> arbol in this.getHijos()){
+					int contador = arbol.altura();
+					if(contador > altura)
+						altura = contador;
+				}
+				altura++;
+			}
+			return altura;
 		}
-	
+		
+		//Ejercicio 4- B)      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 		
 		public int nivel(T dato) {
-			int rama = 0;
-			return 0;
+			int nivel = 0;
+			if(this.getDatoRaiz().ToString() == dato.ToString())
+				return 0;
+			else{
+				foreach(ArbolGeneral<T> arbol in this.getHijos()){
+					int encontrado = arbol.nivel(dato);
+					if(encontrado < 0)
+						continue;
+					if(encontrado >= 0)
+						nivel = 1 + encontrado;
+				}
+				if(nivel == 0)
+					nivel--;
+			}
+			return nivel;
+		}
+		
+		// Ejercicio 4- C)       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		
+		public int ancho(){
+			int ancho = 0;
+			if(this.esHoja())
+				return 0;
+			else{
+				int contador = 0;
+				foreach(ArbolGeneral<T> arbol in this.getHijos()){
+					arbol.ancho();
+					contador++;
+					if(contador >= ancho)
+						ancho = contador;
+				}
+			}
+			return ancho;
 		}
 	
 	}
